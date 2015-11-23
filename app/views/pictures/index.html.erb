@@ -1,0 +1,19 @@
+<h1>Picture</h1>
+<h3><%= link_to '新規投稿', new_picture_path %></h3>
+
+<% @pictures.each do |p| %>
+
+<div class="col-sm-6 col-md-3">
+    <div class="thumbnail">
+      <%= image_tag p.image, class: :'img-responsive img-thumbnail' %>
+      <div class="caption">
+        <p><%= p.text %></p>
+         <p><%= link_to '削除', picture_path(p), method: :delete, class: :'btn', data: { confirm: '削除しますか？' }  %></p>
+      </div>
+    </div>
+</div>
+<% end %>
+
+
+
+

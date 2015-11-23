@@ -1,0 +1,15 @@
+
+<div class="panel panel-default">
+  <div class="panel-heading"><%= link_to '登録者一覧', participations_path %></div>
+  <div class="panel-body">
+    <% @participations.each do |participation| %>
+      <ul class="list-group">
+        <li class="list-group-item"><%= link_to participation.name, participation %> [<%= participation.publish %>]
+          <%= link_to '編集', edit_participation_path(participation) %>
+          <%= link_to '削除', participation_path(participation), method: :delete, data: { confirm: '削除しますか？' } %>
+        </li>
+      </ul>
+    <% end %>
+  </div>
+</div>
+

@@ -1,0 +1,22 @@
+<h1>新規投稿</h1>
+
+<%= form_for :picture, url: pictures_path do |f| %>
+  <!-- 画像start -->
+  <% if @picture.image? %>
+    <%= image_tag @picture.image.url.to_s, class: :'img-thumbnail img-responsive' %>
+  <% end %>
+  <%= f.label :image %>
+  <%= f.file_field :image, size: 10, maxlength: 15 %>
+  <%= f.hidden_field :image_cache %>
+  <!-- 既存レコード(DBに保存されている)かつ画像が存在する場合 -->
+  <% if @picture.persisted? && @picture.image? %>
+    <label>
+      <%= f.check_box :remove_image %>
+        画像を削除
+    </label>
+  <% end %>
+  <!-- 画像end -->
+  <p><%= f.label :text, '内容' %></p>
+  <p><%= f.text_area :text, cols: 50, rows: 10 %></p>
+  <p><%= f.submit '送信' %></p>
+<% end %>

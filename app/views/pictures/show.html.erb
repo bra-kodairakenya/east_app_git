@@ -1,0 +1,9 @@
+<h1>詳細</h1>
+
+<p><strong>画像</strong></p>
+<% if @picture.image? %>
+  <p><%= image_tag @picture.image.url.to_s %></p>
+<% end %>
+
+<p><strong>説明</strong></p>
+<p><%= @picture.text %></p>

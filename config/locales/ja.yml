@@ -1,0 +1,6 @@
+ja:
+  attributes:
+    name: 名前
+    telphone: 携帯番号
+    mail: メールアドレス
+    publish: 出欠席
